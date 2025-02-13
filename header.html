@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox Mega Menu</title>
+    <style>
+      .header-container {
+        background-color: #111;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+      }
+
+      .nav-buttons {
+        display: flex;
+        gap: 1rem;
+        padding: 0 8rem;
+      }
+
+      .nav-buttons button {
+        font-size: 16px;
+        cursor: pointer;
+        background-color: inherit;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+      }
+
+      .nav-buttons button:hover {
+        background-color: #444;
+      }
+
+      .mega-menu {
+        max-height: 0;
+        overflow: hidden;
+        width: 100%;
+        background-color: #111;
+        color: #818181;
+        padding: 0;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        box-sizing: border-box;
+        transition: max-height 0.8s ease;
+      }
+
+      .mega-menu.open {
+        max-height: 1000px;
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        border: 1px solid #333;
+        box-sizing: border-box;
+        margin-bottom: 1rem;
+      }
+
+      .column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid #333;
+      }
+
+      .column:last-child {
+        border-right: none;
+      }
+
+      .item {
+        padding: 10px;
+        border-bottom: 1px solid #333;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+      }
+
+      .item:last-child {
+        border-bottom: none;
+      }
+
+      .item-image {
+        width: 5rem;
+        height: 5rem;
+        margin-right: 1rem;
+      }
+
+      .item-content {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .item-title {
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .item-description {
+        margin: 0;
+        color: #666;
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background-color: #333;
+        color: white;
+        font-weight: bold;
+      }
+
+      .content {
+        margin: 1rem 4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header-container">
+      <div class="nav-buttons">
+        <a href="https://dockstarindustrial.com/"><button>Home</button></a>
+        <button onclick="toggleMenu()">Products</button>
+        <a href="https://dockstarindustrial.com/about/"
+          ><button>About Us</button></a
+        >
+        <a href="https://dockstarindustrial.com/careers/"
+          ><button>Careers</button></a
+        >
+        <a href="https://dockstarindustrial.com/contact-us"
+          ><button>Contact Us</button></a
+        >
+      </div>
+    </div>
+
+    <div id="megaMenu" class="mega-menu">
+      <div class="container">
+        <div class="column">
+          <a href="https://dockstarindustrial.com/products-dock-levelers"
+            ><div class="item header">Dock Levelers</div></a
+          >
+          <div class="item">
+            <img
+              src="https://dockstarindustrial.com/wp-content/uploads/2025/02/placeholder.jpg"
+              alt="Pit Image"
+              class="item-image"
+            />
+            <div class="item-content">
+              <div class="item-title">Pit</div>
+              <p class="item-description">Short description of Pit.</p>
+            </div>
+          </div>
+          <div class="item">
+            <img
+              src="https://dockstarindustrial.com/wp-content/uploads/2025/02/placeholder.jpg"
+              alt="Edge Image"
+              class="item-image"
+            />
+            <div class="item-content">
+              <div class="item-title">Edge</div>
+              <p class="item-description">Short description of Edge.</p>
+            </div>
+          </div>
+          <div class="item">
+            <img
+              src="https://dockstarindustrial.com/wp-content/uploads/2025/02/placeholder.jpg"
+              alt="Portable Image"
+              class="item-image"
+            />
+            <div class="item-content">
+              <div class="item-title">Portable</div>
+              <p class="item-description">Short description of Portable.</p>
+            </div>
+          </div>
+          <div class="item">
+            <img
+              src="https://dockstarindustrial.com/wp-content/uploads/2025/02/placeholder.jpg"
+              alt="Non-pit Image"
+              class="item-image"
+            />
+            <div class="item-content">
+              <div class="item-title">Non-pit</div>
+              <p class="item-description">Short description of non-pit.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <a href="https://dockstarindustrial.com/products-dock-bumpers">
+            <div class="item header">Dock Bumpers</div>
+          </a>
+          <div class="item">
+            <img
+              src="https://dockstarindustrial.com/wp-content/uploads/2025/02/placeholder.jpg"
+              alt="Pit Image"
+              class="item-image"
+            />
+            <div class="item-content">
+              <div class="item-title">Pit</div>
+              <p class="item-description">Short description of Pit.</p>
+            </div>
+          </div>
+          <div class="item">
+            <img
+              src="https://dockstarindustrial.com/wp-content/uploads/2025/02/placeholder.jpg"
+              alt="Edge Image"
+              class="item-image"
+            />
+            <div class="item-content">
+              <div class="item-title">Edge</div>
+              <p class="item-description">Short description of Edge.</p>
+            </div>
+          </div>
+          <div class="item">
+            <img
+              src="https://dockstarindustrial.com/wp-content/uploads/2025/02/placeholder.jpg"
+              alt="Portable Image"
+              class="item-image"
+            />
+            <div class="item-content">
+              <div class="item-title">Portable</div>
+              <p class="item-description">Short description of Portable.</p>
+            </div>
+          </div>
+          <div class="item">
+            <img
+              src="https://dockstarindustrial.com/wp-content/uploads/2025/02/placeholder.jpg"
+              alt="Non-pit Image"
+              class="item-image"
+            />
+            <div class="item-content">
+              <div class="item-title">Non-pit</div>
+              <p class="item-description">Short description of non-pit.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <a href="https://dockstarindustrial.com/products-dock-locks">
+            <div class="item header">Dock Locks</div>
+          </a>
+          <div class="item">
+            <img
+              src="https://dockstarindustrial.com/wp-content/uploads/2025/02/placeholder.jpg"
+              alt="Pit Image"
+              class="item-image"
+            />
+            <div class="item-content">
+              <div class="item-title">Pit</div>
+              <p class="item-description">Short description of Pit.</p>
+            </div>
+          </div>
+          <div class="item">
+            <img
+              src="https://dockstarindustrial.com/wp-content/uploads/2025/02/placeholder.jpg"
+              alt="Edge Image"
+              class="item-image"
+            />
+            <div class="item-content">
+              <div class="item-title">Edge</div>
+              <p class="item-description">Short description of Edge.</p>
+            </div>
+          </div>
+          <div class="item">
+            <img
+              src="https://dockstarindustrial.com/wp-content/uploads/2025/02/placeholder.jpg"
+              alt="Portable Image"
+              class="item-image"
+            />
+            <div class="item-content">
+              <div class="item-title">Portable</div>
+              <p class="item-description">Short description of Portable.</p>
+            </div>
+          </div>
+          <div class="item">
+            <img
+              src="https://dockstarindustrial.com/wp-content/uploads/2025/02/placeholder.jpg"
+              alt="Non-pit Image"
+              class="item-image"
+            />
+            <div class="item-content">
+              <div class="item-title">Non-pit</div>
+              <p class="item-description">Short description of non-pit.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <a href="https://dockstarindustrial.com/products-dock-weather-seals">
+            <div class="item header">Dock Weather Seals</div>
+          </a>
+          <div class="item">
+            <img
+              src="https://dockstarindustrial.com/wp-content/uploads/2025/02/placeholder.jpg"
+              alt="Pit Image"
+              class="item-image"
+            />
+            <div class="item-content">
+              <div class="item-title">Pit</div>
+              <p class="item-description">Short description of Pit.</p>
+            </div>
+          </div>
+          <div class="item">
+            <img
+              src="https://dockstarindustrial.com/wp-content/uploads/2025/02/placeholder.jpg"
+              alt="Edge Image"
+              class="item-image"
+            />
+            <div class="item-content">
+              <div class="item-title">Edge</div>
+              <p class="item-description">Short description of Edge.</p>
+            </div>
+          </div>
+          <div class="item">
+            <img
+              src="https://dockstarindustrial.com/wp-content/uploads/2025/02/placeholder.jpg"
+              alt="Portable Image"
+              class="item-image"
+            />
+            <div class="item-content">
+              <div class="item-title">Portable</div>
+              <p class="item-description">Short description of Portable.</p>
+            </div>
+          </div>
+          <div class="item">
+            <img
+              src="https://dockstarindustrial.com/wp-content/uploads/2025/02/placeholder.jpg"
+              alt="Non-pit Image"
+              class="item-image"
+            />
+            <div class="item-content">
+              <div class="item-title">Non-pit</div>
+              <p class="item-description">Short description of non-pit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleMenu() {
+        var menu = document.getElementById("megaMenu");
+        menu.classList.toggle("open");
+      }
+    </script>
+  </body>
+</html>
