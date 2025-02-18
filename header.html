@@ -1,502 +1,483 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flexbox Mega Menu</title>
-    <style>
-      .header-container {
-        background-color: black;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-      }
+<style>
+  .header-container {
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
 
-      .logo-img {
-        width: auto;
-        height: 4rem;
-      }
+  .logo-img {
+    width: auto;
+    height: 4rem;
+  }
 
-      .nav-buttons {
-        display: flex;
-        gap: 1rem;
-        padding: 0 2rem;
-      }
+  .nav-buttons {
+    display: flex;
+    gap: 1rem;
+    padding: 0 2rem;
+  }
 
-      .nav-buttons button {
-        font-size: 16px;
-        font-weight: bold;
-        cursor: pointer;
-        background-color: inherit;
-        color: white;
-        border: none;
-        padding: 0.5rem 0.5rem;
-      }
+  .nav-buttons button {
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: inherit;
+    color: white;
+    border: none;
+    padding: 0.5rem 0.5rem;
+  }
 
-      .nav-buttons button:hover {
-        background-color: #444;
-      }
+  .nav-buttons button:hover {
+    background-color: #444;
+  }
 
-      .phone {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-      }
+  .phone {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
 
-      .phone-icon {
-        width: 2rem;
-        height: 2rem;
-      }
+  .phone-icon {
+    width: 2rem;
+    height: 2rem;
+  }
 
-      .phone-number {
-        font-size: 1.5rem;
-        font-weight: bold;
-      }
+  .phone-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
 
-      .mega-menu {
-        max-height: 0;
-        overflow: hidden;
-        width: 100%;
-        background-color: black;
-        color: #818181;
-        padding: 0;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-        box-sizing: border-box;
-        transition: max-height 0.8s ease;
-      }
+  .mega-menu {
+    max-height: 0;
+    overflow: hidden;
+    width: 100%;
+    background-color: black;
+    color: #818181;
+    padding: 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    box-sizing: border-box;
+    transition: max-height 0.8s ease;
+  }
 
-      .mega-menu.open {
-        max-height: 1000px;
-      }
+  .mega-menu.open {
+    max-height: 1000px;
+  }
 
-      .container {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        border: 1px solid #333;
-        box-sizing: border-box;
-        margin-bottom: 1rem;
-      }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    border: 1px solid #333;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+  }
 
-      .column {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        border-right: 1px solid #333;
-      }
+  .column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #333;
+  }
 
-      .column:last-child {
-        border-right: none;
-      }
+  .column:last-child {
+    border-right: none;
+  }
 
-      .item {
-        padding: 10px;
-        border-bottom: 1px solid #333;
-        box-sizing: border-box;
-        display: flex;
-        align-items: center;
-        height: 9rem;
-      }
+  .item {
+    padding: 10px;
+    border-bottom: 1px solid #333;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    height: 9rem;
+  }
 
-      .item:last-child {
-        border-bottom: none;
-      }
+  .item:last-child {
+    border-bottom: none;
+  }
 
-      .item-image {
-        width: 6rem;
-        height: 6rem;
-        margin-right: 1rem;
-      }
+  .item-image {
+    width: 6rem;
+    height: 6rem;
+    margin-right: 1rem;
+  }
 
-      .item-content {
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-        justify-content: space-between;
-        height: 100%;
-      }
+  .item-content {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: space-between;
+    height: 100%;
+  }
 
-      .item-category-title {
-        font-weight: bold;
-        text-transform: uppercase;
-        margin: 0;
-      }
+  .item-category-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+  }
 
-      .item-category-product {
-        margin: 0;
-        color: #666;
-      }
+  .item-category-product {
+    margin: 0;
+    color: #666;
+  }
 
-      .product-list {
-        margin: 0;
-        flex-grow: 1; /* Allows the ul to take up available space */
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start; /* Aligns the list items at the top */
-      }
+  .product-list {
+    margin: 0;
+    flex-grow: 1; /* Allows the ul to take up available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligns the list items at the top */
+  }
 
-      .more {
-        margin-top: auto;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="header-container">
-      <a href="https://dockstarindustrial.com/">
-        <img
-          src="https://dockstarindustrial.com/wp-content/uploads/2025/02/9.png"
-          alt="logo"
-          class="logo-img"
-        />
-      </a>
-      <div class="nav-buttons">
-        <a href="https://dockstarindustrial.com/"><button>Home</button></a>
-        <button onclick="toggleMenu()">Products</button>
-        <a href="https://dockstarindustrial.com/about/"
-          ><button>About Us</button></a
-        >
-        <a href="https://dockstarindustrial.com/careers/"
-          ><button>Careers</button></a
-        >
-        <a href="https://dockstarindustrial.com/contact-us"
-          ><button>Contact Us</button></a
-        >
-      </div>
-      <div class="phone">
-        <a href="tel:8439831031">
+  .more {
+    margin-top: auto;
+  }
+</style>
+
+<div class="header-container">
+  <a href="https://dockstarindustrial.com/">
+    <img
+      src="https://dockstarindustrial.com/wp-content/uploads/2025/02/9.png"
+      alt="logo"
+      class="logo-img"
+    />
+  </a>
+  <div class="nav-buttons">
+    <a href="https://dockstarindustrial.com/"><button>Home</button></a>
+    <button onclick="toggleMenu()">Products</button>
+    <a href="https://dockstarindustrial.com/about/"
+      ><button>About Us</button></a
+    >
+    <a href="https://dockstarindustrial.com/careers/"
+      ><button>Careers</button></a
+    >
+    <a href="https://dockstarindustrial.com/contact-us"
+      ><button>Contact Us</button></a
+    >
+  </div>
+  <div class="phone">
+    <a href="tel:8439831031">
+      <img
+        src="https://dockstarindustrial.com/wp-content/uploads/2025/02/phone-call.png"
+        alt="logo"
+        class="phone-icon"
+      />
+    </a>
+    <span class="phone-number">843-983-1031</span>
+  </div>
+</div>
+
+<div id="megaMenu" class="mega-menu">
+  <div class="container">
+    <div class="column">
+      <div class="item">
+        <a href="https://dockstarindustrial.com/products-dock-levelers">
           <img
-            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/phone-call.png"
-            alt="logo"
-            class="phone-icon"
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
+            alt="dock-leveler"
+            class="item-image"
           />
         </a>
-        <span class="phone-number">843-983-1031</span>
+        <div class="item-content">
+          <a href="https://dockstarindustrial.com/products-dock-levelers">
+            <div class="item-category-title">Dock Levelers</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">Product 1</li>
+            <li class="item-category-product">Product 2</li>
+            <li class="item-category-product">Product 3</li>
+          </ul>
+          <a
+            href="https://dockstarindustrial.com/products-dock-levelers"
+            class="more"
+            >More ...</a
+          >
+        </div>
       </div>
-    </div>
-
-    <div id="megaMenu" class="mega-menu">
-      <div class="container">
-        <div class="column">
-          <div class="item">
-            <a href="https://dockstarindustrial.com/products-dock-levelers">
-              <img
-                src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
-                alt="dock-leveler"
-                class="item-image"
-              />
-            </a>
-            <div class="item-content">
-              <a href="https://dockstarindustrial.com/products-dock-levelers">
-                <div class="item-category-title">Dock Levelers</div>
-              </a>
-              <ul class="product-list">
-                <li class="item-category-product">Product 1</li>
-                <li class="item-category-product">Product 2</li>
-                <li class="item-category-product">Product 3</li>
-              </ul>
-              <a
-                href="https://dockstarindustrial.com/products-dock-levelers"
-                class="more"
-                >More ...</a
-              >
-            </div>
-          </div>
-          <div class="item">
-            <a href="">
-              <img
-                src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
-                alt="swivels custom carts"
-                class="item-image"
-              />
-            </a>
-            <div class="item-content">
-              <a href="">
-                <div class="item-category-title">Swivels Custom Carts</div>
-              </a>
-              <ul class="product-list">
-                <li class="item-category-product">Product 1</li>
-                <li class="item-category-product">Product 2</li>
-                <li class="item-category-product">Product 3</li>
-              </ul>
-              <a href="" class="more">More ...</a>
-            </div>
-          </div>
-          <div class="item">
-            <a href="">
-              <img
-                src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
-                alt="high-speed door"
-                class="item-image"
-              />
-            </a>
-            <div class="item-content">
-              <a href="">
-                <div class="item-category-title">High-Speed Doors</div>
-              </a>
-              <ul class="product-list">
-                <li class="item-category-product">Product 1</li>
-                <li class="item-category-product">Product 2</li>
-                <li class="item-category-product">Product 3</li>
-              </ul>
-              <a href="" class="more">More ...</a>
-            </div>
-          </div>
-          <div class="item">
-            <a href="">
-              <img
-                src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
-                alt="hydration station"
-                class="item-image"
-              />
-            </a>
-            <div class="item-content">
-              <a href="">
-                <div class="item-category-title">Hydration Stations</div>
-              </a>
-              <ul class="product-list">
-                <li class="item-category-product">Product 1</li>
-                <li class="item-category-product">Product 2</li>
-                <li class="item-category-product">Product 3</li>
-              </ul>
-              <a href="" class="more">More ...</a>
-            </div>
-          </div>
+      <div class="item">
+        <a href="">
+          <img
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
+            alt="swivels custom carts"
+            class="item-image"
+          />
+        </a>
+        <div class="item-content">
+          <a href="">
+            <div class="item-category-title">Swivels Custom Carts</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">Product 1</li>
+            <li class="item-category-product">Product 2</li>
+            <li class="item-category-product">Product 3</li>
+          </ul>
+          <a href="" class="more">More ...</a>
         </div>
-
-        <div class="column">
-          <div class="item">
-            <a
-              href="https://dockstarindustrial.com/products-vehicle-restraints"
-            >
-              <img
-                src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
-                alt="vehicle-restraint"
-                class="item-image"
-              />
-            </a>
-            <div class="item-content">
-              <a
-                href="https://dockstarindustrial.com/products-vehicle-restraints"
-              >
-                <div class="item-category-title">Vehicle Restraints</div>
-              </a>
-              <ul class="product-list">
-                <li class="item-category-product">Product 1</li>
-                <li class="item-category-product">Product 2</li>
-                <li class="item-category-product">Product 3</li>
-              </ul>
-              <a
-                href="https://dockstarindustrial.com/products-vehicle-restraints"
-                class="more"
-                >More ...</a
-              >
-            </div>
-          </div>
-          <div class="item">
-            <a href="">
-              <img
-                src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
-                alt="protective railing"
-                class="item-image"
-              />
-            </a>
-            <div class="item-content">
-              <a href="">
-                <div class="item-category-title">protective railings</div>
-              </a>
-              <ul class="product-list">
-                <li class="item-category-product">Product 1</li>
-                <li class="item-category-product">Product 2</li>
-                <li class="item-category-product">Product 3</li>
-              </ul>
-              <a href="" class="more">More ...</a>
-            </div>
-          </div>
-          <div class="item">
-            <a href="">
-              <img
-                src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
-                alt="traffic door"
-                class="item-image"
-              />
-            </a>
-            <div class="item-content">
-              <a href="">
-                <div class="item-category-title">traffic doors</div>
-              </a>
-              <ul class="product-list">
-                <li class="item-category-product">Product 1</li>
-                <li class="item-category-product">Product 2</li>
-                <li class="item-category-product">Product 3</li>
-              </ul>
-              <a href="" class="more">More ...</a>
-            </div>
-          </div>
-          <div class="item">
-            <a href="">
-              <img
-                src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
-                alt="eyewash station"
-                class="item-image"
-              />
-            </a>
-            <div class="item-content">
-              <a href="">
-                <div class="item-category-title">eyewash stations</div>
-              </a>
-              <ul class="product-list">
-                <li class="item-category-product">Product 1</li>
-                <li class="item-category-product">Product 2</li>
-                <li class="item-category-product">Product 3</li>
-              </ul>
-              <a href="" class="more">More ...</a>
-            </div>
-          </div>
+      </div>
+      <div class="item">
+        <a href="">
+          <img
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
+            alt="high-speed door"
+            class="item-image"
+          />
+        </a>
+        <div class="item-content">
+          <a href="">
+            <div class="item-category-title">High-Speed Doors</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">Product 1</li>
+            <li class="item-category-product">Product 2</li>
+            <li class="item-category-product">Product 3</li>
+          </ul>
+          <a href="" class="more">More ...</a>
         </div>
-
-        <div class="column">
-          <div class="item">
-            <a
-              href="https://dockstarindustrial.com/products-dock-weather-seals"
-            >
-              <img
-                src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
-                alt="dock-weather-seal"
-                class="item-image"
-              />
-            </a>
-            <div class="item-content">
-              <a
-                href="https://dockstarindustrial.com/products-dock-weather-seals"
-              >
-                <div class="item-category-title">Dock Seals & Shelters</div>
-              </a>
-              <ul class="product-list">
-                <li class="item-category-product">Product 1</li>
-                <li class="item-category-product">Product 2</li>
-                <li class="item-category-product">Product 3</li>
-              </ul>
-              <a href="" class="more">More ...</a>
-            </div>
-          </div>
-          <div class="item">
-            <a href="">
-              <img
-                src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
-                alt="wire partition"
-                class="item-image"
-              />
-            </a>
-            <div class="item-content">
-              <a href="">
-                <div class="item-category-title">Wire Partitions</div>
-              </a>
-              <ul class="product-list">
-                <li class="item-category-product">Product 1</li>
-                <li class="item-category-product">Product 2</li>
-                <li class="item-category-product">Product 3</li>
-              </ul>
-              <a href="" class="more">More ...</a>
-            </div>
-          </div>
-          <div class="item">
-            <a href="">
-              <img
-                src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
-                alt="Security gate"
-                class="item-image"
-              />
-            </a>
-            <div class="item-content">
-              <a href="">
-                <div class="item-category-title">Security Gates</div>
-              </a>
-              <ul class="product-list">
-                <li class="item-category-product">Product 1</li>
-                <li class="item-category-product">Product 2</li>
-                <li class="item-category-product">Product 3</li>
-              </ul>
-              <a href="" class="more">More ...</a>
-            </div>
-          </div>
-          <div class="item"></div>
-        </div>
-
-        <div class="column">
-          <div class="item">
-            <a href="https://dockstarindustrial.com/products-dock-bumpers">
-              <img
-                src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
-                alt="dock-bumper"
-                class="item-image"
-              />
-            </a>
-            <div class="item-content">
-              <a href="https://dockstarindustrial.com/products-dock-bumpers">
-                <div class="item-category-title">
-                  Dock Bumpers & Accessories
-                </div>
-              </a>
-              <ul class="product-list">
-                <li class="item-category-product">Product 1</li>
-                <li class="item-category-product">Product 2</li>
-                <li class="item-category-product">Product 3</li>
-              </ul>
-              <a href="" class="more">More ...</a>
-            </div>
-          </div>
-          <div class="item">
-            <a href="">
-              <img
-                src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
-                alt="spill containment"
-                class="item-image"
-              />
-            </a>
-            <div class="item-content">
-              <a href="">
-                <div class="item-category-title">Spill Containment</div>
-              </a>
-              <ul class="product-list">
-                <li class="item-category-product">Product 1</li>
-                <li class="item-category-product">Product 2</li>
-                <li class="item-category-product">Product 3</li>
-              </ul>
-              <a href="" class="more">More ...</a>
-            </div>
-          </div>
-          <div class="item">
-            <a href="">
-              <img
-                src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
-                alt="safety light"
-                class="item-image"
-              />
-            </a>
-            <div class="item-content">
-              <a href="">
-                <div class="item-category-title">Safety lights</div>
-              </a>
-              <ul class="product-list">
-                <li class="item-category-product">Product 1</li>
-                <li class="item-category-product">Product 2</li>
-                <li class="item-category-product">Product 3</li>
-              </ul>
-              <a href="" class="more">More ...</a>
-            </div>
-          </div>
-          <div class="item"></div>
+      </div>
+      <div class="item">
+        <a href="">
+          <img
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
+            alt="hydration station"
+            class="item-image"
+          />
+        </a>
+        <div class="item-content">
+          <a href="">
+            <div class="item-category-title">Hydration Stations</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">Product 1</li>
+            <li class="item-category-product">Product 2</li>
+            <li class="item-category-product">Product 3</li>
+          </ul>
+          <a href="" class="more">More ...</a>
         </div>
       </div>
     </div>
 
-    <script>
-      function toggleMenu() {
-        var menu = document.getElementById("megaMenu");
-        menu.classList.toggle("open");
-      }
-    </script>
-  </body>
-</html>
+    <div class="column">
+      <div class="item">
+        <a href="https://dockstarindustrial.com/products-vehicle-restraints">
+          <img
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
+            alt="vehicle-restraint"
+            class="item-image"
+          />
+        </a>
+        <div class="item-content">
+          <a href="https://dockstarindustrial.com/products-vehicle-restraints">
+            <div class="item-category-title">Vehicle Restraints</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">Product 1</li>
+            <li class="item-category-product">Product 2</li>
+            <li class="item-category-product">Product 3</li>
+          </ul>
+          <a
+            href="https://dockstarindustrial.com/products-vehicle-restraints"
+            class="more"
+            >More ...</a
+          >
+        </div>
+      </div>
+      <div class="item">
+        <a href="">
+          <img
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
+            alt="protective railing"
+            class="item-image"
+          />
+        </a>
+        <div class="item-content">
+          <a href="">
+            <div class="item-category-title">protective railings</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">Product 1</li>
+            <li class="item-category-product">Product 2</li>
+            <li class="item-category-product">Product 3</li>
+          </ul>
+          <a href="" class="more">More ...</a>
+        </div>
+      </div>
+      <div class="item">
+        <a href="">
+          <img
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
+            alt="traffic door"
+            class="item-image"
+          />
+        </a>
+        <div class="item-content">
+          <a href="">
+            <div class="item-category-title">traffic doors</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">Product 1</li>
+            <li class="item-category-product">Product 2</li>
+            <li class="item-category-product">Product 3</li>
+          </ul>
+          <a href="" class="more">More ...</a>
+        </div>
+      </div>
+      <div class="item">
+        <a href="">
+          <img
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
+            alt="eyewash station"
+            class="item-image"
+          />
+        </a>
+        <div class="item-content">
+          <a href="">
+            <div class="item-category-title">eyewash stations</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">Product 1</li>
+            <li class="item-category-product">Product 2</li>
+            <li class="item-category-product">Product 3</li>
+          </ul>
+          <a href="" class="more">More ...</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="item">
+        <a href="https://dockstarindustrial.com/products-dock-weather-seals">
+          <img
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
+            alt="dock-weather-seal"
+            class="item-image"
+          />
+        </a>
+        <div class="item-content">
+          <a href="https://dockstarindustrial.com/products-dock-weather-seals">
+            <div class="item-category-title">Dock Seals & Shelters</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">Product 1</li>
+            <li class="item-category-product">Product 2</li>
+            <li class="item-category-product">Product 3</li>
+          </ul>
+          <a href="" class="more">More ...</a>
+        </div>
+      </div>
+      <div class="item">
+        <a href="">
+          <img
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
+            alt="wire partition"
+            class="item-image"
+          />
+        </a>
+        <div class="item-content">
+          <a href="">
+            <div class="item-category-title">Wire Partitions</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">Product 1</li>
+            <li class="item-category-product">Product 2</li>
+            <li class="item-category-product">Product 3</li>
+          </ul>
+          <a href="" class="more">More ...</a>
+        </div>
+      </div>
+      <div class="item">
+        <a href="">
+          <img
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
+            alt="Security gate"
+            class="item-image"
+          />
+        </a>
+        <div class="item-content">
+          <a href="">
+            <div class="item-category-title">Security Gates</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">Product 1</li>
+            <li class="item-category-product">Product 2</li>
+            <li class="item-category-product">Product 3</li>
+          </ul>
+          <a href="" class="more">More ...</a>
+        </div>
+      </div>
+      <div class="item"></div>
+    </div>
+
+    <div class="column">
+      <div class="item">
+        <a href="https://dockstarindustrial.com/products-dock-bumpers">
+          <img
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
+            alt="dock-bumper"
+            class="item-image"
+          />
+        </a>
+        <div class="item-content">
+          <a href="https://dockstarindustrial.com/products-dock-bumpers">
+            <div class="item-category-title">Dock Bumpers & Accessories</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">Product 1</li>
+            <li class="item-category-product">Product 2</li>
+            <li class="item-category-product">Product 3</li>
+          </ul>
+          <a href="" class="more">More ...</a>
+        </div>
+      </div>
+      <div class="item">
+        <a href="">
+          <img
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
+            alt="spill containment"
+            class="item-image"
+          />
+        </a>
+        <div class="item-content">
+          <a href="">
+            <div class="item-category-title">Spill Containment</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">Product 1</li>
+            <li class="item-category-product">Product 2</li>
+            <li class="item-category-product">Product 3</li>
+          </ul>
+          <a href="" class="more">More ...</a>
+        </div>
+      </div>
+      <div class="item">
+        <a href="">
+          <img
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
+            alt="safety light"
+            class="item-image"
+          />
+        </a>
+        <div class="item-content">
+          <a href="">
+            <div class="item-category-title">Safety lights</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">Product 1</li>
+            <li class="item-category-product">Product 2</li>
+            <li class="item-category-product">Product 3</li>
+          </ul>
+          <a href="" class="more">More ...</a>
+        </div>
+      </div>
+      <div class="item"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleMenu() {
+    var menu = document.getElementById("megaMenu");
+    menu.classList.toggle("open");
+  }
+</script>
