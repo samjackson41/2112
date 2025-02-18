@@ -6,7 +6,7 @@
     <title>Flexbox Mega Menu</title>
     <style>
       .header-container {
-        background-color: #111;
+        background-color: black;
         color: white;
         display: flex;
         align-items: center;
@@ -15,14 +15,13 @@
 
       .logo-img {
         width: auto;
-        height: 5rem;
-        margin: 0;
+        height: 4rem;
       }
 
       .nav-buttons {
         display: flex;
         gap: 1rem;
-        padding: 0 8rem;
+        padding: 0 2rem;
       }
 
       .nav-buttons button {
@@ -31,18 +30,34 @@
         background-color: inherit;
         color: white;
         border: none;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 0.5rem;
       }
 
       .nav-buttons button:hover {
         background-color: #444;
       }
 
+      .phone {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .phone-icon {
+        width: 2rem;
+        height: 2rem;
+      }
+
+      .phone-number {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
       .mega-menu {
         max-height: 0;
         overflow: hidden;
         width: 100%;
-        background-color: #111;
+        background-color: black;
         color: #818181;
         padding: 0;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -112,7 +127,7 @@
       .header {
         display: flex;
         align-items: center;
-        justify-content: space-around;
+        justify-content: left;
         background-color: #333;
         color: white;
         font-weight: bold;
@@ -127,7 +142,7 @@
     <div class="header-container">
       <a href="https://dockstarindustrial.com/">
         <img
-          src="https://dockstarindustrial.com/wp-content/uploads/2025/02/1-1.png"
+          src="https://dockstarindustrial.com/wp-content/uploads/2025/02/DockStar-website-headers.png"
           alt="logo"
           class="logo-img"
         />
@@ -144,6 +159,16 @@
         <a href="https://dockstarindustrial.com/contact-us"
           ><button>Contact Us</button></a
         >
+      </div>
+      <div class="phone">
+        <a href="tel:8439831031">
+          <img
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/phone-call.png"
+            alt="logo"
+            class="phone-icon"
+          />
+        </a>
+        <span class="phone-number">843-983-1031</span>
       </div>
     </div>
 
