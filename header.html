@@ -67,7 +67,7 @@
 
   .container {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     width: 100%;
     border: 1px solid #333;
     box-sizing: border-box;
@@ -101,11 +101,13 @@
   .item-image {
     width: 6rem;
     height: 6rem;
-    margin-right: 1rem;
+    object-fit: cover;
+    aspect-ratio: 1;
   }
 
   .item-content {
     display: flex;
+    padding-left: 5px;
     flex-direction: column;
     text-align: left;
     justify-content: space-between;
@@ -125,14 +127,20 @@
 
   .product-list {
     margin: 0;
-    flex-grow: 1; /* Allows the ul to take up available space */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Aligns the list items at the top */
+    justify-content: flex-start;
   }
 
   .more {
     margin-top: auto;
+  }
+
+  .item-category-title:hover,
+  .item-category-product:hover,
+  .more:hover {
+    color: white;
   }
 </style>
 
