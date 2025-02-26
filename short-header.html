@@ -1,0 +1,471 @@
+<style>
+  .header-container {
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .logo-img {
+    width: auto;
+    height: 4rem;
+  }
+
+  .nav-buttons {
+    display: flex;
+    gap: 1rem;
+    padding: 0 2rem;
+  }
+
+  .nav-buttons button {
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: inherit;
+    color: white;
+    border: none;
+    padding: 0.5rem 0.5rem;
+  }
+
+  .nav-buttons button:hover {
+    background-color: #444;
+  }
+
+  .phone {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .phone-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .phone-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .mega-menu {
+    max-height: 0;
+    overflow: hidden;
+    width: 100%;
+    background-color: black;
+    color: #818181;
+    padding: 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    box-sizing: border-box;
+    transition: max-height 0.8s ease;
+  }
+
+  .mega-menu.open {
+    max-height: 1000px;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    border: 1px solid #333;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+  }
+
+  .column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #333;
+  }
+
+  .column:last-child {
+    border-right: none;
+  }
+
+  .item {
+    padding: 10px;
+    border-bottom: 1px solid #333;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    height: 12rem;
+  }
+
+  .item:last-child {
+    border-bottom: none;
+  }
+
+  .item-image {
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+    aspect-ratio: 1;
+  }
+
+  .item-content {
+    display: flex;
+    padding-left: 5px;
+    flex-direction: column;
+    text-align: left;
+    justify-content: space-between;
+    height: 100%;
+    width: 60%;
+  }
+
+  .item-category-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .item-category-product a {
+    margin: 0;
+    color: #666;
+    text-decoration: none;
+  }
+
+  .item-category-product a:hover {
+    color: white;
+  }
+
+  .product-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .more {
+    margin-top: auto;
+  }
+
+  .item-category-title:hover,
+  .item-category-product:hover,
+  .more:hover {
+    color: white;
+  }
+</style>
+
+<div class="header-container">
+  <a href="https://dockstarindustrial.com/">
+    <img
+      src="https://dockstarindustrial.com/wp-content/uploads/2025/02/9.png"
+      alt="logo"
+      class="logo-img"
+    />
+  </a>
+  <div class="nav-buttons">
+    <a href="https://dockstarindustrial.com/"><button>Home</button></a>
+    <button onclick="toggleMenu()">Products</button>
+    <a href="https://dockstarindustrial.com/about/"
+      ><button>About Us</button></a
+    >
+    <a href="https://dockstarindustrial.com/careers/"
+      ><button>Careers</button></a
+    >
+    <a href="https://dockstarindustrial.com/contact-us"
+      ><button>Contact Us</button></a
+    >
+  </div>
+  <div class="phone">
+    <a href="tel:8439831031">
+      <img
+        src="https://dockstarindustrial.com/wp-content/uploads/2025/02/phone-call.png"
+        alt="logo"
+        class="phone-icon"
+      />
+    </a>
+    <span class="phone-number">843-983-1031</span>
+  </div>
+</div>
+
+<div id="megaMenu" class="mega-menu">
+  <div class="container">
+    <div class="column">
+      <div class="item">
+        <a href="https://dockstarindustrial.com/products/dock-levelers/">
+          <img
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
+            alt="dock-leveler"
+            class="item-image"
+          />
+        </a>
+        <div class="item-content">
+          <a href="https://dockstarindustrial.com/products/dock-levelers/">
+            <div class="item-category-title">Dock Levelers</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">
+              <a href="#">Tri-Pivot Leveler</a>
+            </li>
+            <li class="item-category-product">
+              <a href="#">More Products Coming Soon!</a>
+            </li>
+          </ul>
+          <a
+            href="https://dockstarindustrial.com/products/dock-levelers/"
+            class="more"
+            >More ...</a
+          >
+        </div>
+      </div>
+      <div class="item">
+        <a href="https://dockstarindustrial.com/products/swivels-custom-carts/">
+          <img
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
+            alt="swivels custom carts"
+            class="item-image"
+          />
+        </a>
+        <div class="item-content">
+          <a
+            href="https://dockstarindustrial.com/products/swivels-custom-carts/"
+          >
+            <div class="item-category-title">Swivels Custom Carts</div>
+          </a>
+
+          <ul class="product-list">
+            <li class="item-category-product">
+              <a href="#">Loading Carts</a>
+            </li>
+            <li class="item-category-product">
+              <a href="#">Storage Carts</a>
+            </li>
+            <li class="item-category-product">
+              <a href="#">Utility Carts</a>
+            </li>
+          </ul>
+
+          <a
+            href="https://dockstarindustrial.com/products/swivels-custom-carts/"
+            class="more"
+            >More ...</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="item">
+        <a href="https://dockstarindustrial.com/products/vehicle-restraints/">
+          <img
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
+            alt="vehicle-restraint"
+            class="item-image"
+          />
+        </a>
+        <div class="item-content">
+          <a href="https://dockstarindustrial.com/products/vehicle-restraints/">
+            <div class="item-category-title">Vehicle Restraints</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">
+              <a href="#">DockStar Restraint</a>
+            </li>
+            <li class="item-category-product">
+              <a href="#">More Products Coming Soon!</a>
+            </li>
+          </ul>
+          <a
+            href="https://dockstarindustrial.com/products/vehicle-restraints/"
+            class="more"
+            >More ...</a
+          >
+        </div>
+      </div>
+      <div class="item">
+        <a href="https://dockstarindustrial.com/products/protective-railings/">
+          <img
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
+            alt="protective railing"
+            class="item-image"
+          />
+        </a>
+        <div class="item-content">
+          <a
+            href="https://dockstarindustrial.com/products/protective-railings/"
+          >
+            <div class="item-category-title">Safety lights & Gates</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">
+              <a href="#">Overhead Door Lights</a>
+            </li>
+            <li class="item-category-product">
+              <a href="#">Leveler Lights</a>
+            </li>
+            <li class="item-category-product">
+              <a href="#">Door Backing lights</a>
+            </li>
+          </ul>
+          <a
+            href="https://dockstarindustrial.com/products/protective-railings/"
+            class="more"
+            >More ...</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="item">
+        <a
+          href="https://dockstarindustrial.com/products/dock-seals-and-shelters/"
+        >
+          <img
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
+            alt="dock-weather-seal"
+            class="item-image"
+          />
+        </a>
+        <div class="item-content">
+          <a
+            href="https://dockstarindustrial.com/products/dock-seals-and-shelters/"
+          >
+            <div class="item-category-title">Dock Seals & Shelters</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">
+              <a href="#">Commander Soft-Sided Shelter</a>
+            </li>
+            <li class="item-category-product">
+              <a href="#">Sentinel Soft-Sided Shelter</a>
+            </li>
+            <li class="item-category-product">
+              <a href="#">Ultra-Dark Soft-Sided Shelter</a>
+            </li>
+          </ul>
+          <a
+            href="https://dockstarindustrial.com/products/dock-seals-and-shelters/"
+            class="more"
+            >More ...</a
+          >
+        </div>
+      </div>
+      <div class="item">
+        <a href="https://dockstarindustrial.com/products/wire-partitions/">
+          <img
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
+            alt="wire partition"
+            class="item-image"
+          />
+        </a>
+        <div class="item-content">
+          <a href="https://dockstarindustrial.com/products/wire-partitions/">
+            <div class="item-category-title">Wire Partitions</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">
+              <a
+                href="https://dockstarindustrial.com/products/wire-partitions/standard-cages/"
+                >Standard Cages</a
+              >
+            </li>
+            <li class="item-category-product">
+              <a
+                href="https://dockstarindustrial.com/products/wire-partitions/machine-guarding/"
+                >Machine Guarding</a
+              >
+            </li>
+            <li class="item-category-product">
+              <a
+                href="https://dockstarindustrial.com/products/wire-partitions/pallet-rack-systems/"
+                >Pallet Rack Systems</a
+              >
+            </li>
+          </ul>
+          <a
+            href="https://dockstarindustrial.com/products/wire-partitions/"
+            class="more"
+            >More ...</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="item">
+        <a
+          href="https://dockstarindustrial.com/products/dock-bumpers-and-accessories/"
+        >
+          <img
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
+            alt="dock-bumper"
+            class="item-image"
+          />
+        </a>
+        <div class="item-content">
+          <a
+            href="https://dockstarindustrial.com/products/dock-bumpers-and-accessories/"
+          >
+            <div class="item-category-title">Dock Bumpers & Accessories</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">
+              <a href="#">Laminated Bumpers</a>
+            </li>
+            <li class="item-category-product">
+              <a href="#">Metal Hoods</a>
+            </li>
+            <li class="item-category-product">
+              <a href="#">Rain Dams</a>
+            </li>
+          </ul>
+          <a
+            href="https://dockstarindustrial.com/products/dock-bumpers-and-accessories/"
+            class="more"
+            >More ...</a
+          >
+        </div>
+      </div>
+      <div class="item">
+        <a href="https://dockstarindustrial.com/products/spill-containment/">
+          <img
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-8.39.07 AM.png"
+            alt="spill containment"
+            class="item-image"
+          />
+        </a>
+        <div class="item-content">
+          <a href="https://dockstarindustrial.com/products/spill-containment/">
+            <div class="item-category-title">Spill Containment</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">
+              <a
+                href="https://dockstarindustrial.com/products/spill-containment/drum-containment/"
+                >Spill Pallets for Drums</a
+              >
+            </li>
+            <li class="item-category-product">
+              <a
+                href="https://dockstarindustrial.com/products/spill-containment/flexible-containment/"
+                >Spill Pallets for IBC</a
+              >
+            </li>
+            <li class="item-category-product">
+              <a href="#">Containment Berms</a>
+            </li>
+          </ul>
+          <a
+            href="https://dockstarindustrial.com/products/spill-containment/"
+            class="more"
+            >More ...</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleMenu() {
+    var menu = document.getElementById("megaMenu");
+    menu.classList.toggle("open");
+  }
+</script>
