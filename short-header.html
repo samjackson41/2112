@@ -69,7 +69,6 @@
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
-    border: 1px solid #333;
     box-sizing: border-box;
     margin-bottom: 1rem;
   }
@@ -78,24 +77,14 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid #333;
-  }
-
-  .column:last-child {
-    border-right: none;
   }
 
   .item {
     padding: 10px;
-    border-bottom: 1px solid #333;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     height: 12rem;
-  }
-
-  .item:last-child {
-    border-bottom: none;
   }
 
   .item-image {
@@ -148,6 +137,13 @@
   .item-category-product:hover,
   .more:hover {
     color: white;
+  }
+
+  .row-heading {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 1rem 0rem 0rem 1rem;
   }
 
   .button-container {
@@ -207,6 +203,7 @@
 <div id="megaMenu" class="mega-menu">
   <div class="container">
     <div class="column">
+      <!-- <span class="row-heading">Loading Dock Management</span> -->
       <div class="item">
         <a href="https://dockstarindustrial.com/products/dock-levelers/">
           <img
@@ -236,6 +233,7 @@
           >
         </div>
       </div>
+
       <div class="item">
         <a href="https://dockstarindustrial.com/products/swivels-custom-carts/">
           <img
@@ -250,7 +248,6 @@
           >
             <div class="item-category-title">Swivels Custom Carts</div>
           </a>
-
           <ul class="product-list">
             <li class="item-category-product">
               <a
@@ -271,7 +268,6 @@
               >
             </li>
           </ul>
-
           <a
             href="https://dockstarindustrial.com/products/swivels-custom-carts/"
             class="more"
@@ -279,44 +275,41 @@
           >
         </div>
       </div>
+
       <div class="item">
-        <a
-          href="https://dockstarindustrial.com/products/pre-manufactured-buildings/"
-        >
+        <a href="https://dockstarindustrial.com/products/wire-partitions/">
           <img
-            src="https://dockstarindustrial.com/wp-content/uploads/2025/03/dockstar-thumbnail.jpg"
-            alt="pre-manufactured buildings"
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/03/Wire-Cages-Partitions.jpg"
+            alt="wire partition"
             class="item-image"
           />
         </a>
         <div class="item-content">
-          <a
-            href="https://dockstarindustrial.com/products/pre-manufactured-buildings/"
-          >
-            <div class="item-category-title">Pre-Manufactured Buildings</div>
+          <a href="https://dockstarindustrial.com/products/wire-partitions/">
+            <div class="item-category-title">Wire Partitions</div>
           </a>
           <ul class="product-list">
             <li class="item-category-product">
               <a
-                href="https://dockstarindustrial.com/products/pre-manufactured-buildings/interior-modular-offices/"
-                >Modular Offices</a
+                href="https://dockstarindustrial.com/products/wire-partitions/standard-cages/"
+                >Standard Cages</a
               >
             </li>
             <li class="item-category-product">
               <a
-                href="https://dockstarindustrial.com/products/pre-manufactured-buildings/exterior-prefabricated-buildings/"
-                >Prefabricated Buildings</a
+                href="https://dockstarindustrial.com/products/wire-partitions/machine-guarding/"
+                >Machine Guarding</a
               >
             </li>
             <li class="item-category-product">
               <a
-                href="https://dockstarindustrial.com/products/pre-manufactured-buildings/welded-steel-buildings/"
-                >Welded Steel Buildings</a
+                href="https://dockstarindustrial.com/products/wire-partitions/pallet-rack-systems/"
+                >Pallet Rack Systems</a
               >
             </li>
           </ul>
           <a
-            href="https://dockstarindustrial.com/products/pre-manufactured-buildings/"
+            href="https://dockstarindustrial.com/products/wire-partitions/"
             class="more"
             >More ...</a
           >
@@ -355,6 +348,7 @@
           >
         </div>
       </div>
+
       <div class="item">
         <a href="https://dockstarindustrial.com/products/safety-lights/">
           <img
@@ -394,7 +388,45 @@
           >
         </div>
       </div>
-      <div class="item"></div>
+      <div class="item">
+        <a href="https://dockstarindustrial.com/products/spill-containment/">
+          <img
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/03/Spill-Containment.jpg"
+            alt="spill containment"
+            class="item-image"
+          />
+        </a>
+        <div class="item-content">
+          <a href="https://dockstarindustrial.com/products/spill-containment/">
+            <div class="item-category-title">Spill Containment</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">
+              <a
+                href="https://dockstarindustrial.com/products/spill-containment/drum-containment/spill-pallets-for-drums/"
+                >Spill Pallets for Drums</a
+              >
+            </li>
+            <li class="item-category-product">
+              <a
+                href="https://dockstarindustrial.com/products/spill-containment/ibc-containment/spill-pallets-for-ibc/"
+                >Spill Pallets for IBC</a
+              >
+            </li>
+            <li class="item-category-product">
+              <a
+                href="https://dockstarindustrial.com/products/spill-containment/hard-wall-containment/ultra-containment-wall-m2/"
+                >Containment Walls</a
+              >
+            </li>
+          </ul>
+          <a
+            href="https://dockstarindustrial.com/products/spill-containment/"
+            class="more"
+            >More ...</a
+          >
+        </div>
+      </div>
     </div>
 
     <div class="column">
@@ -441,46 +473,52 @@
           >
         </div>
       </div>
+
       <div class="item">
-        <a href="https://dockstarindustrial.com/products/wire-partitions/">
-          <img
-            src="https://dockstarindustrial.com/wp-content/uploads/2025/03/Wire-Cages-Partitions.jpg"
-            alt="wire partition"
-            class="item-image"
-          />
+        <a href="#">
+          <img src="#" alt="protective railing" class="item-image" />
         </a>
         <div class="item-content">
-          <a href="https://dockstarindustrial.com/products/wire-partitions/">
-            <div class="item-category-title">Wire Partitions</div>
+          <a href="#">
+            <div class="item-category-title">Protective Railings</div>
           </a>
           <ul class="product-list">
             <li class="item-category-product">
-              <a
-                href="https://dockstarindustrial.com/products/wire-partitions/standard-cages/"
-                >Standard Cages</a
-              >
+              <a href="#">Building, Wall, & Column Protection</a>
             </li>
             <li class="item-category-product">
-              <a
-                href="https://dockstarindustrial.com/products/wire-partitions/machine-guarding/"
-                >Machine Guarding</a
-              >
+              <a href="#">Pedestrian Protection</a>
             </li>
             <li class="item-category-product">
-              <a
-                href="https://dockstarindustrial.com/products/wire-partitions/pallet-rack-systems/"
-                >Pallet Rack Systems</a
-              >
+              <a href="#">Racking Protection</a>
             </li>
           </ul>
-          <a
-            href="https://dockstarindustrial.com/products/wire-partitions/"
-            class="more"
-            >More ...</a
-          >
+          <a href="#" class="more">More ...</a>
         </div>
       </div>
-      <div class="item"></div>
+
+      <div class="item">
+        <a href="#">
+          <img src="#" alt="hydration station" class="item-image" />
+        </a>
+        <div class="item-content">
+          <a href="#">
+            <div class="item-category-title">Hydration Stations</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">
+              <a href="#">Drinking Fountains</a>
+            </li>
+            <li class="item-category-product">
+              <a href="#">Bottle Filling Stations</a>
+            </li>
+            <li class="item-category-product">
+              <a href="#">Outdoor Bottle Filling & Drinking Fountains</a>
+            </li>
+          </ul>
+          <a href="#" class="more">More ...</a>
+        </div>
+      </div>
     </div>
 
     <div class="column">
@@ -527,49 +565,83 @@
           >
         </div>
       </div>
+
       <div class="item">
-        <a href="https://dockstarindustrial.com/products/spill-containment/">
+        <a href="#">
+          <img src="#" alt="high speed door" class="item-image" />
+        </a>
+        <div class="item-content">
+          <a href="#">
+            <div class="item-category-title">High Speed Doors</div>
+          </a>
+          <ul class="product-list">
+            <li class="item-category-product">
+              <a href="#">Fabric Doors</a>
+            </li>
+            <li class="item-category-product">
+              <a href="#">Rigid Doors</a>
+            </li>
+            <li class="item-category-product">
+              <a href="#">Sliding Doors</a>
+            </li>
+          </ul>
+          <a href="#" class="more">More ...</a>
+        </div>
+      </div>
+
+      <div class="item">
+        <a
+          href="https://dockstarindustrial.com/products/pre-manufactured-buildings/"
+        >
           <img
-            src="https://dockstarindustrial.com/wp-content/uploads/2025/03/Spill-Containment.jpg"
-            alt="spill containment"
+            src="https://dockstarindustrial.com/wp-content/uploads/2025/03/dockstar-thumbnail.jpg"
+            alt="pre-manufactured buildings"
             class="item-image"
           />
         </a>
         <div class="item-content">
-          <a href="https://dockstarindustrial.com/products/spill-containment/">
-            <div class="item-category-title">Spill Containment</div>
+          <a
+            href="https://dockstarindustrial.com/products/pre-manufactured-buildings/"
+          >
+            <div class="item-category-title">Pre-Manufactured Buildings</div>
           </a>
           <ul class="product-list">
             <li class="item-category-product">
               <a
-                href="https://dockstarindustrial.com/products/spill-containment/drum-containment/spill-pallets-for-drums/"
-                >Spill Pallets for Drums</a
+                href="https://dockstarindustrial.com/products/pre-manufactured-buildings/interior-modular-offices/"
+                >Modular Offices</a
               >
             </li>
             <li class="item-category-product">
               <a
-                href="https://dockstarindustrial.com/products/spill-containment/ibc-containment/spill-pallets-for-ibc/"
-                >Spill Pallets for IBC</a
+                href="https://dockstarindustrial.com/products/pre-manufactured-buildings/exterior-prefabricated-buildings/"
+                >Prefabricated Buildings</a
               >
             </li>
             <li class="item-category-product">
               <a
-                href="https://dockstarindustrial.com/products/spill-containment/hard-wall-containment/ultra-containment-wall-m2/"
-                >Containment Walls</a
+                href="https://dockstarindustrial.com/products/pre-manufactured-buildings/welded-steel-buildings/"
+                >Welded Steel Buildings</a
               >
             </li>
           </ul>
           <a
-            href="https://dockstarindustrial.com/products/spill-containment/"
+            href="https://dockstarindustrial.com/products/pre-manufactured-buildings/"
             class="more"
             >More ...</a
           >
         </div>
       </div>
-      <div class="item"></div>
     </div>
   </div>
   <a href="https://dockstarindustrial.com/products/" class="button-container"
     ><button class="products-button">View All Products</button></a
   >
 </div>
+
+<script>
+  function toggleMenu() {
+    var menu = document.getElementById("megaMenu");
+    menu.classList.toggle("open");
+  }
+</script>
