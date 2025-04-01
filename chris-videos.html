@@ -1,0 +1,143 @@
+<style>
+    /* Container for the video to maintain aspect ratio */
+    .video-container {
+     position: relative;        
+     width: 100%;
+     max-width: 100vw;   
+     height: calc(100vw / (4700 / 1762));
+     background-image: url('https://dockstarindustrial.com/wp-content/uploads/2025/04/about-frame.png'); 
+     background-size: cover; 
+     background-position: center;
+     background-repeat: no-repeat;
+    }
+    
+    #bg-video {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+    }
+    
+    .mute-button {
+     padding: 0;
+     background-color: 
+     transparent !important;
+     position: absolute;
+     left: 55%;
+     top: 25%;
+     border: none !important;
+     border-radius: 4rem;
+     width: 8vw;
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     box-shadow: none !important;
+    }
+    
+    .mute-button:hover,
+    .mute-button:active,
+    .mute-button:focus {
+     box-shadow: none !important;
+     border: none !important;
+    }
+    
+    .button-text {
+     color: white !important;
+     font-weight: bold;
+     font-size: 1.5rem;
+     margin: 5px;
+    }
+    
+    .page-title {
+     padding: 0;
+     color: white !important;
+     position: absolute;
+     left: 10%;
+     top: 75%;
+     width: 20rem;
+     display: flex;
+     align-items: center;
+     box-shadow: none !important;
+    }
+    
+    </style>
+    
+    <div class="video-container">
+    <video id="bg-video" autoplay loop muted>
+     <source
+       src="https://videos.files.wordpress.com/Gp0BMi4J/about-page-muted.mp4"
+       type="video/mp4"
+     />
+     Your browser does not support the video tag.
+    </video>
+    
+    <button class="mute-button">
+     <img
+       id="button-image" src="https://dockstarindustrial.com/wp-content/uploads/2025/04/white-check.png"
+       style="width: 2rem"
+     />
+     <h3 class="button-text">Mute</h3>
+    </button>
+    
+    <h1 class="page-title">About Us<h1/>
+    </div>
+    
+    <script>
+    const videoElement = document.getElementById("bg-video");
+    const button = document.querySelector(".mute-button");
+    const buttonImage = document.getElementById("button-image");
+    
+    const videoSources = [
+     "https://videos.files.wordpress.com/Gp0BMi4J/about-page-muted.mp4", // Muted video
+     "https://videos.files.wordpress.com/omEjdvEg/about-page-talking.mp4", // Unmuted video
+    ];
+    const buttonImages = [
+    "https://dockstarindustrial.com/wp-content/uploads/2025/04/white-check.png", 
+    
+    "https://dockstarindustrial.com/wp-content/uploads/2025/04/white-box.png",
+    ];
+    
+    // Initially set to play muted video
+    videoElement.src = videoSources[0];
+    videoElement.loop = true; // Loop is enabled initially
+    
+    button.addEventListener("click", function () {
+     // Clear any existing 'ended' event listeners
+     videoElement.removeEventListener("ended", handleVideoEnd);
+    
+     if (videoElement.muted) {
+       console.log("\n\nclicked unmute\n\n");
+       // If currently muted, unmute and change to the unmuted video
+       videoElement.muted = false; // Unmute
+       videoElement.src = videoSources[1]; // Change to the talking video
+       videoElement.loop = false; // Disable loop for unmuted video
+       videoElement.play(); // Play the new video
+    
+       // Change the button image
+       buttonImage.src = buttonImages[1];
+    
+       // Set the `onended` handler for the video
+       videoElement.addEventListener("ended", handleVideoEnd);
+     } else {
+       console.log("\n\nclicked mute\n\n");
+       // If currently unmuted, just mute the video
+       videoElement.muted = true; // Mute
+       videoElement.src = videoSources[0]; // Switch back to the muted video
+       videoElement.loop = true; // Re-enable loop for muted video
+       videoElement.play(); // Auto-play the muted video
+       buttonImage.src = buttonImages[0]; // Change the button image back
+     }
+    });
+    
+    // Handler for video `ended` event
+    function handleVideoEnd() {
+     console.log("\n\nvideo ended\n\n");
+     videoElement.muted = true; // Mute the video after it ends
+     videoElement.src = videoSources[0]; // Switch back to the muted video
+     videoElement.loop = true; // Re-enable loop on mute video
+     videoElement.play(); // Auto-play the muted video
+     buttonImage.src = buttonImages[0]; // Change the button image back
+    }
+    
+    // Start with the muted video (loop enabled)
+    videoElement.play();
+    </script>
